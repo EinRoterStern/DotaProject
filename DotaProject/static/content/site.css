@@ -77,6 +77,6 @@ p.updateMap {
     text-align: center;
     font-size: 24px; /*стиль для текста*/
 }
-p.updateRoshan {
-    font-size: 16px; /*стиль для текста логова рошана*/
+p.updateText {
+    font-size: 18px; /*стиль для текста логова рошана*/
 }
