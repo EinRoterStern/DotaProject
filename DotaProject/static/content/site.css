@@ -68,3 +68,15 @@ p.update {
     text-align: center;
     font-size: 24px; /*стиль для текста*/
 }
+.Update h2 {
+    text-align: center; /*стиль для заголовка обновления карты*/
+    font-size: 44px;
+    font-weight: bold;
+}
+p.updateMap {
+    text-align: center;
+    font-size: 24px; /*стиль для текста*/
+}
+p.updateRoshan {
+    font-size: 16px; /*стиль для текста логова рошана*/
+}
