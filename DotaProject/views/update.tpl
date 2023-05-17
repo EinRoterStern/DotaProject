@@ -69,5 +69,25 @@
       <p class="updateText">{{ text9 }}</p>
     </div>
 
+    <h2>Оставить отзыв:</h2>
+    <form method="POST" action="/update">
+        <label for="nickname">Никнейм:</label>
+        <input type="text" id="nickname" name="nickname" required><br>
+        <label for="review">Отзыв:</label>
+        <textarea id="review" name="review" required></textarea><br>
+        <label for="phone">Номер телефона:</label>
+        <input type="text" id="phone" name="phone" required><br>
+        <input type="submit" value="Добавить отзыв">
+    </form>
+
+    <h2>Все отзывы:</h2>
+    <ul>
+        % for review in reviews:
+            <li><strong>{{ review['nickname'] }}</strong>: {{ review['review'] }} (Телефон: {{ review['phone'] }})</li>
+         % end
+    </ul>
+
+
+
 
 </div>

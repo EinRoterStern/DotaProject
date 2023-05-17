@@ -2,8 +2,10 @@
 Routes and views for the bottle application.
 """
 # -*- coding: utf-8 -*-
-from bottle import route, view, template
+from re import I
+from bottle import route, view, template, request, redirect
 from datetime import datetime
+from module1 import load_reviews_from_file, save_review_to_file
 
 @route('/')
 @route('/home')
@@ -45,9 +47,10 @@ def about():
         year=datetime.now().year
     )
 
-@route('/update')
+@route('/update', method='GET')
+@route('/update', method='POST')
 @view('update')
-def about():
+def update():
     with open('file.txt', 'r', encoding='utf-8') as file:
         text = file.read()
     with open('file2.txt', 'r', encoding='utf-8') as file2:
@@ -66,7 +69,50 @@ def about():
         text8 = file8.read()
     with open('file9.txt', 'r', encoding='utf-8') as file9:
         text9 = file9.read()
-    return template('update', text=text,text2=text2,text3=text3,text4=text4,text5=text5,text6=text6,text7=text7,text8=text8,text9=text9, year=datetime.now().year)
+
+    reviews = load_reviews_from_file()
+
+    if request.method == 'POST':
+        nickname = request.forms.get('nickname')
+        review = request.forms.get('review')
+        phone = request.forms.get('phone')
+        new_review = {'nickname': nickname, 'review': review, 'phone': phone}
+        save_review_to_file(new_review)
+        reviews.append(new_review)
+        # Redirect to the update page to avoid form resubmission on page refresh
+        #redirect('/update')
+
+    return template('update', text=text, text2=text2, text3=text3, text4=text4, text5=text5, text6=text6, text7=text7, text8=text8, text9=text9, reviews=reviews, year=datetime.now().year)
+
+#@route('/add_review', method='POST')
+#def add_review():
+#    nickname = request.forms.get('nickname')
+#    review = request.forms.get('review')
+#    phone = request.forms.get('phone')
+#    new_review = {'nickname': nickname, 'review': review, 'phone': phone}
+#    save_review_to_file(new_review)
+#    # Redirect to the update page to avoid form resubmission on page refresh
+#    redirect('/update')
+
+
+
+
+#@route('/update')
+#@view('update')
+#def update():
+#    with open('reviews.txt', 'r', encoding='utf-8') as file10:
+#        text10 = file10.read()
+#    reviews = load_reviews_from_file()
+#    return template('update', text10=text10, reviews=reviews, year=datetime.now().year)
+
+#@route('/add_review', method='POST')
+#def add_review():
+#    nickname = request.forms.get('nickname')
+#    review = request.forms.get('review')
+#    phone = request.forms.get('phone')
+#    new_review = {'nickname': nickname, 'review': review, 'phone': phone}
+#    save_review_to_file(new_review)
+#    return template('update', year=datetime.now().year)
 
  
 
