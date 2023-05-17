@@ -60,7 +60,11 @@ body {
 }
 
 .Update h1 {
-    text-align: center;
-    font-size: 36px;
+    text-align: center; /*стиль для заголовка обновления*/
+    font-size: 44px;
     font-weight: bold;
+}
+p.update {
+    text-align: center;
+    font-size: 24px; /*стиль для текста*/
 }
