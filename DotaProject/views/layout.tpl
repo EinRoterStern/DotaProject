@@ -25,6 +25,7 @@
                     <li><a href="/mama">Сила</a></li>
                     <li><a href="/about">Ловкость</a></li>
                     <li><a href="/contact">Интелект</a></li>
+                    <li><a href="/update">Обновления</a></li>
                     
                 </ul>
             </div>

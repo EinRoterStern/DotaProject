@@ -45,4 +45,14 @@ def about():
         year=datetime.now().year
     )
 
+@route('/update')
+@view('update')
+def about():
+    """Renders the about page."""
+    return dict(
+        #title="Strength",
+        #message='Your application description page.',
+        year=datetime.now().year
+    )
+
 

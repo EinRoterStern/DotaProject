@@ -18,7 +18,7 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>DotaProject</Name>
     <RootNamespace>DotaProject</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env1|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +31,9 @@
   <ItemGroup>
     <Compile Include="app.py" />
     <Compile Include="routes.py" />
+    <Compile Include="views\update.tpl">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="static\" />
@@ -81,6 +84,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include="env1\">
+      <Id>env1</Id>
+      <Version>3.10</Version>
+      <Description>env1 (Python 3.10 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
     <Interpreter Include="env\">
       <Id>env</Id>
       <Version>3.9</Version>
