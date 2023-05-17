@@ -51,7 +51,7 @@ def about():
 @route('/update', method='POST')
 @view('update')
 def update():
-    with open('file.txt', 'r', encoding='utf-8') as file:
+    with open('file.txt', 'r', encoding='utf-8') as file: #Выгрузка текста из файлов
         text = file.read()
     with open('file2.txt', 'r', encoding='utf-8') as file2:
         text2 = file2.read()
@@ -72,14 +72,14 @@ def update():
 
     reviews = load_reviews_from_file()
 
-    if request.method == 'POST':
+    if request.method == 'POST': #добавление информации отзывов
         nickname = request.forms.get('nickname')
         review = request.forms.get('review')
         phone = request.forms.get('phone')
         new_review = {'nickname': nickname, 'review': review, 'phone': phone}
         save_review_to_file(new_review)
         reviews.append(new_review)
-        # Redirect to the update page to avoid form resubmission on page refresh
+        
        
 
     return template('update', text=text, text2=text2, text3=text3, text4=text4, text5=text5, text6=text6, text7=text7, text8=text8, text9=text9, reviews=reviews, year=datetime.now().year)

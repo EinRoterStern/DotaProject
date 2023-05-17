@@ -4,13 +4,13 @@ import re
 
 def validate_phone_number(phone):
     
-    pattern = r'^\+\d{1}\s\d{3}\s\d{3}\s\d{2}\s\d{2}$'
+    pattern = r'^\+\d{1}\s\d{3}\s\d{3}\s\d{2}\s\d{2}$' # паттерн номера телефона
     return re.match(pattern, phone) is not None
 
 class PhoneNumberValidationTest(unittest.TestCase):
     def test_phone_number_format(self):
         
-        with open('reviews.txt', 'r', encoding='utf-8') as file:
+        with open('reviews.txt', 'r', encoding='utf-8') as file: #проверка номера телефона введенного в поле отзыва
             for line in file:
                 nickname, review, phone = line.strip().split(',')
  
