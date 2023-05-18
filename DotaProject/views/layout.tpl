@@ -26,6 +26,7 @@
                     <li><a href="/about">Ловкость</a></li>
                     <li><a href="/contact">Интелект</a></li>
                     <li><a href="/update">Обновления</a></li>
+                    <li><a href="/activeusers">Активные пользователи</a></li>
                     
                 </ul>
             </div>

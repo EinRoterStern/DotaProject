@@ -76,7 +76,8 @@ def update():
         nickname = request.forms.get('nickname')
         review = request.forms.get('review')
         phone = request.forms.get('phone')
-        new_review = {'nickname': nickname, 'review': review, 'phone': phone}
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        new_review = {'nickname': nickname, 'review': review, 'phone': phone, 'timestamp':timestamp}
         save_review_to_file(new_review)
         reviews.append(new_review)
         

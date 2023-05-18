@@ -83,7 +83,7 @@
     <h2>Все отзывы:</h2>
     <ul>
         % for review in reviews:
-            <li><strong>{{ review['nickname'] }}</strong>: {{ review['review'] }} (Телефон: {{ review['phone'] }})</li> <!-- Список всех отзывов -->
+            <li><strong>{{ review['nickname'] }}</strong>: {{ review['review'] }} </strong>: {{ review['timestamp'] }} )</li> <!-- Список всех отзывов -->
          % end
     </ul>
 
