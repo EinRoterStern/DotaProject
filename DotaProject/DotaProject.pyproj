@@ -43,6 +43,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="routes.py" />
+    <Compile Include="save_load.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="views\update.tpl">
       <SubType>Code</SubType>
     </Compile>

@@ -6,6 +6,8 @@ from re import I
 from bottle import route, view, template, request, redirect
 from datetime import datetime
 from module1 import load_reviews_from_file, save_review_to_file
+from save_load import load_file, save_file, load_file_AI
+import time
 
 @route('/')
 @route('/home')
@@ -80,10 +82,34 @@ def update():
         new_review = {'nickname': nickname, 'review': review, 'phone': phone, 'timestamp':timestamp}
         save_review_to_file(new_review)
         reviews.append(new_review)
-        
-       
+          
 
     return template('update', text=text, text2=text2, text3=text3, text4=text4, text5=text5, text6=text6, text7=text7, text8=text8, text9=text9, reviews=reviews, year=datetime.now().year)
+
+
+@route('/activeusers', method='GET')
+@route('/activeusers', method='POST')
+@view('activeusers')
+def activeusers():
+    reviews = load_file()
+
+    reviews1 = load_file_AI()
+
+
+
+    if request.method == 'POST': #добавление информации отзывов
+        nickname = request.forms.get('nickname')
+        review = request.forms.get('review')
+        phone = request.forms.get('phone')
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        new_review = {'nickname': nickname, 'review': review, 'phone': phone, 'timestamp':timestamp}
+        save_file(new_review)
+        reviews.append(new_review)
+          
+
+    return template('activeusers',reviews=reviews,reviews1=reviews1,  year=datetime.now().year)
+
+     
 
 #@route('/add_review', method='POST')
 #def add_review():
