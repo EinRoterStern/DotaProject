@@ -24,6 +24,6 @@
                 <li><strong>{{ review1['nickname'] }}</strong>: {{ review1['review'] }} </strong>: {{ review1['timestamp'] }} )</li> <!-- Список всех подготовленных отзывов -->          
          % end
         % for review in reviews:
-            <li><strong>{{ review['nickname'] }}</strong>: {{ review['review'] }} </strong>: {{ review['timestamp'] }} )</li> <!-- Список всех отзывов -->
+            <li><strong>{{ review['nickname'] }}</strong>: {{ review['review'] }} </strong>: {{ review['timestamp'] }} )</li> <!-- Список написанных отзывов -->
          % end        
     </ul>

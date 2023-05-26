@@ -20,7 +20,7 @@
     <RootNamespace>DotaProject</RootNamespace>
     <InterpreterId>MSBuild|env3|$(MSBuildProjectFullPath)</InterpreterId>
     <TestFramework>unittest</TestFramework>
-    <UnitTestPattern>module3*.py</UnitTestPattern>
+    <UnitTestPattern>module2*.py</UnitTestPattern>
     <UnitTestRootDirectory>.</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

@@ -1,4 +1,4 @@
-# Load reviews from file
+# выгрузка из файла
 def load_file(): #метод загрузки из файла
     reviews = []
     try:
@@ -12,7 +12,7 @@ def load_file(): #метод загрузки из файла
         pass
     return reviews
 
-# Save review to file
+# сохранение в файл
 def save_file(review): #сохранение в файл
     with open('activeuser.txt', 'a', encoding='utf-8') as file:
         file.write(f"{review['nickname']},{review['review']},{review['phone']},{review['timestamp']}\n")
